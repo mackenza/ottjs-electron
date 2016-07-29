@@ -24,5 +24,11 @@
   "homepage": "https://github.com/electron/electron-quick-start#readme",
   "devDependencies": {
     "electron-prebuilt": "^1.2.0"
+  },
+  "dependencies": {
+    "pkginfo": "^0.4.0",
+    "read-pkg": "^1.1.0",
+    "scooter-css": "^2.0.0",
+    "write-pkg": "^1.0.0"
   }
 }
