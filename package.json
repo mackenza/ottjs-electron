@@ -28,7 +28,7 @@
   "dependencies": {
     "pkginfo": "^0.4.0",
     "read-pkg": "^1.1.0",
-    "scooter-css": "^2.0.0",
+    "semantic-ui": "^2.2.2",
     "write-pkg": "^1.0.0"
   }
 }
