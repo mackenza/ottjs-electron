@@ -1,3 +1,9 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+const readPkg = require('read-pkg');
+const writePkg = require('write-pkg');
+
+readPkg(__dirname).then(function (pkg) {
+    console.log(pkg);
+    document.getElementById('pkg-name').innerHTML = pkg.name;
+    document.getElementById('pkg-version').innerHTML = pkg.version;
+    document.getElementById('pkg-desc').innerHTML = pkg.description;
+});

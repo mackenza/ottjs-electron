@@ -3,17 +3,43 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1 class="ui header">package.json Explorer</h1>
+    <h5 class="ui top attached header">Name: </h5>
+    <div class="ui attached segment">
+      <p id="pkg-name" onclick="makeEditable(this)" onblur="makeReadOnly(this)"></p>
+    </div>
+    <h5 class="ui attached header">Version: </h5>
+    <div class="ui attached segment">
+      <p id="pkg-version"></p>
+    </div>
+    <h5 class="ui attached header">Description: </h5>
+    <div class="ui attached segment">
+      <p id="pkg-desc"></p>
+    </div>
+    <h5 class="ui bottom attached header">Keywords: </h5>
+    <div class="ui attached segment">
+      <p id="pkg-name"></p>
+    </div>
   </body>
-
+  <script>window.$ = window.jQuery = require('jquery');</script>
   <script>
     // You can also require other files to run in this process
-    require('./renderer.js')
+    require('./renderer.js');
+
+    function makeEditable(p){
+    p.style.border = "1px solid #000";
+    p.style.padding = "20px";
+    p.contentEditable = true;
+}
+function makeReadOnly(p){
+    p.style.border = "none";
+    p.style.padding = "0px";
+    p.contentEditable = false;
+}
   </script>
+  <script src="semantic/dist/semantic.min.js"></script>
+
 </html>
