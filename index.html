@@ -17,7 +17,7 @@
     </div>
     <h5 class="ui attached header">Description: </h5>
     <div class="ui attached segment">
-      <p id="pkg-desc"></p>
+      <p id="pkg-desc" onclick="makeEditable(this)" onblur="makeReadOnly(this)"></p>
     </div>
     <h5 class="ui bottom attached header">Keywords: </h5>
     <div class="ui attached segment">
@@ -31,7 +31,7 @@
 
     function makeEditable(p){
     p.style.border = "1px solid #000";
-    p.style.padding = "20px";
+    p.style.padding = "10px";
     p.contentEditable = true;
 }
 function makeReadOnly(p){
