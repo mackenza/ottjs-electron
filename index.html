@@ -2,12 +2,15 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>package.json explorer</title>
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   </head>
   <body>
-    <h1 class="ui header">package.json Explorer</h1>
-    <h5 class="ui top attached header">Name: </h5>
+    <h3 class="ui top attached header">package.json Explorer</h3>
+    <div class="ui attached segment">
+        <div class="ui primary button">Open package.json</div>
+    </div>
+    <h5 class="ui attached header">Name: </h5>
     <div class="ui attached segment">
       <p id="pkg-name" onclick="makeEditable(this)" onblur="makeReadOnly(this)"></p>
     </div>
@@ -21,7 +24,7 @@
     </div>
     <h5 class="ui bottom attached header">Keywords: </h5>
     <div class="ui attached segment">
-      <p id="pkg-name"></p>
+      <p id="pkg-keywords"></p>
     </div>
   </body>
   <script>window.$ = window.jQuery = require('jquery');</script>
