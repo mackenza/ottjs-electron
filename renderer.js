@@ -8,6 +8,6 @@ readPkg(__dirname).then(function (pkg) {
     document.getElementById('pkg-desc').innerHTML = pkg.description;
     document.getElementById('pkg-keywords').innerHTML = pkg.keywords;
     document.getElementById('pkg-homepage').innerHTML = pkg.homepage;
-    document.getElementById('pkg-bugs-url').innerHTML = pkg.bugs.url;
-    document.getElementById('pkg-bugs-email').innerHTML = pkg.bugs.email;
+    //document.getElementById('pkg-bugs-url').innerHTML = pkg.bugs.url;
+    //document.getElementById('pkg-bugs-email').innerHTML = pkg.bugs.email;
 });

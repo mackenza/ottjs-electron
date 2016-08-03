@@ -8,40 +8,40 @@
   <body>
     <h3 class="ui top attached header">package.json Explorer</h3>
     <div class="ui attached segment">
-        <div class="ui primary button">Open package.json</div>
+        <div class="ui primary button" onclick="openPkg()">Open package.json</div>
     </div>
-    <h5 class="ui attached header">Name: </h5>
+    <h5 class="ui attached header">Required Fields: </h5>
     <div class="ui attached segment">
-      <p id="pkg-name" onclick="makeEditable(this)" onblur="makeReadOnly(this)"></p>
+      <div class="ui text container"><div class="ui teal label">Name:</div> <span id="pkg-name" onclick="makeEditable(this)" onblur="makeReadOnly(this)"></span></div>
+      <div class="ui text container"><div class="ui teal label">Version:</div> <span id="pkg-version"></span></div>
     </div>
-    <h5 class="ui attached header">Version: </h5>
-    <div class="ui attached segment">
-      <p id="pkg-version"></p>
-    </div>
-    <h5 class="ui attached header">Description: </h5>
+    <h5 class="ui attached header">Basic Info: </h5>
     <div class="ui attached segment">
       <p id="pkg-desc" onclick="makeEditable(this)" onblur="makeReadOnly(this)"></p>
-    </div>
-    <h5 class="ui bottom attached header">Keywords: </h5>
-    <div class="ui attached segment">
       <p id="pkg-keywords"></p>
+      <p id="pkg-homepage"></p>
     </div>
   </body>
   <script>window.$ = window.jQuery = require('jquery');</script>
   <script>
     // You can also require other files to run in this process
     require('./renderer.js');
-
+    const {dialog} = require('electron');
     function makeEditable(p){
     p.style.border = "1px solid #000";
     p.style.padding = "10px";
     p.contentEditable = true;
-}
-function makeReadOnly(p){
-    p.style.border = "none";
-    p.style.padding = "0px";
-    p.contentEditable = false;
-}
+    }
+
+    function makeReadOnly(p){
+        p.style.border = "none";
+        p.style.padding = "0px";
+        p.contentEditable = false;
+    }
+
+    function openPkg() {
+      dialog.showOpenDialog();
+    }
   </script>
   <script src="semantic/dist/semantic.min.js"></script>
 
