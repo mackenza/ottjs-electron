@@ -13,7 +13,10 @@ let mainWindow
 
 ipc.on('open-file-dialog', (event) => {
   dialog.showOpenDialog({
-    properties: ['openFile']
+    properties: ['openFile'],
+    filters: [
+      {name: 'NPM package.json', extensions: ['json']}
+    ]
   }, (files) => {
     if (files) event.sender.send('selected-directory', files)
   });

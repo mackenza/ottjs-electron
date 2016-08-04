@@ -4,23 +4,50 @@
     <meta charset="UTF-8">
     <title>package.json explorer</title>
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
-    <h3 class="ui top attached header">package.json Explorer</h3>
-    <div class="ui attached segment">
-        <div class="ui primary button" id="pkg-open">Open package.json</div>
-        <div class="ui label" id="selected-file"></div>
-    </div>
-    <h5 class="ui attached header">Required Fields: </h5>
-    <div class="ui attached segment">
-      <div class="ui text container"><div class="ui teal label">Name:</div> <span id="pkg-name" onclick="makeEditable(this)" onblur="makeReadOnly(this)"></span></div>
-      <div class="ui text container"><div class="ui teal label">Version:</div> <span id="pkg-version"></span></div>
-    </div>
-    <h5 class="ui attached header">Basic Info: </h5>
-    <div class="ui attached segment">
-      <p id="pkg-desc" onclick="makeEditable(this)" onblur="makeReadOnly(this)"></p>
-      <p id="pkg-keywords"></p>
-      <p id="pkg-homepage"></p>
+    <div class="ui container">
+      <h1 class="ui header">package.json explorer</h1>
+      <div class="ui big celled list">
+        <div class="item">
+          <div class="content">
+            <div class="header">Name: </div>
+            <span id="pkg-name"></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header">Version: </div>
+            <span id="pkg-version"></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header">Description: </div>
+            <span id="pkg-desc"></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header">Keywords: </div>
+            <span id="pkg-keywords"></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header">Homepage: </div>
+            <span id="pkg-homepage"></span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header">Bugs: </div>
+            <span id="pkg-bugs-url"></span>
+            <span id="pkg-bugs-email"></span>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
   <script>window.$ = window.jQuery = require('jquery');</script>
