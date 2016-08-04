@@ -8,7 +8,8 @@
   <body>
     <h3 class="ui top attached header">package.json Explorer</h3>
     <div class="ui attached segment">
-        <div class="ui primary button" onclick="openPkg()">Open package.json</div>
+        <div class="ui primary button" id="pkg-open">Open package.json</div>
+        <div class="ui label" id="selected-file"></div>
     </div>
     <h5 class="ui attached header">Required Fields: </h5>
     <div class="ui attached segment">
@@ -26,7 +27,7 @@
   <script>
     // You can also require other files to run in this process
     require('./renderer.js');
-    const {dialog} = require('electron');
+
     function makeEditable(p){
     p.style.border = "1px solid #000";
     p.style.padding = "10px";
@@ -37,10 +38,6 @@
         p.style.border = "none";
         p.style.padding = "0px";
         p.contentEditable = false;
-    }
-
-    function openPkg() {
-      dialog.showOpenDialog();
     }
   </script>
   <script src="semantic/dist/semantic.min.js"></script>

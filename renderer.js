@@ -1,5 +1,8 @@
 const readPkg = require('read-pkg');
 const writePkg = require('write-pkg');
+const ipc = require('electron').ipcRenderer;
+
+const selectDirBtn = document.getElementById('pkg-open');
 
 readPkg(__dirname).then(function (pkg) {
     console.log(pkg);
@@ -11,3 +14,11 @@ readPkg(__dirname).then(function (pkg) {
     //document.getElementById('pkg-bugs-url').innerHTML = pkg.bugs.url;
     //document.getElementById('pkg-bugs-email').innerHTML = pkg.bugs.email;
 });
+
+selectDirBtn.addEventListener('click', function (event) {
+  ipc.send('open-file-dialog')
+})
+
+ipc.on('selected-directory', function (event, path) {
+  document.getElementById('selected-file').innerHTML = `${path}`;
+})
