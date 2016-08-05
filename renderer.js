@@ -18,8 +18,16 @@ ipc.on('selected-directory', function (event, path) {
 });
 
 function renderPkg(pkg) {
-  let keywords = pkg.keywords;
-  let keywordsMarkup = "";
+  for (var prop in pkg) {
+    if( pkg.hasOwnProperty( prop ) ) {
+      console.log(pkg[prop]);
+      if (typeof prop == 'undefined') {
+        pkg[prop] = "";
+      }
+    } 
+  }
+  var keywords = pkg.keywords;
+  var keywordsMarkup = "";
   keywords.forEach(function(element) {
     keywordsMarkup += `<a class="ui teal tag label">${element}</a>`;
   });
