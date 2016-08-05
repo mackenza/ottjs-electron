@@ -12,6 +12,12 @@
       <div class="ui big celled list">
         <div class="item">
           <div class="content">
+            <div class="ui teal button" id="pkg-open">Open package.json</div>
+            <div class="header">Current Package: <span id="selected-file"></span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
             <div class="header">Name: </div>
             <span id="pkg-name"></span>
           </div>
@@ -43,9 +49,8 @@
         <div class="item">
           <div class="content">
             <div class="header">Bugs: </div>
-            <span id="pkg-bugs-url"></span>
-            <span> - </span>
-            <span id="pkg-bugs-email"></span>
+            <p id="pkg-bugs-url"></p>
+            <p id="pkg-bugs-email"></p>
           </div>
         </div>
       </div>
