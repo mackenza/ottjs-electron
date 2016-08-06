@@ -19,18 +19,16 @@ ipc.on('selected-directory', function (event, path) {
 });
 
 function renderPkg(pkg) {
-  for (var prop in pkg) {
-    if( pkg.hasOwnProperty( prop ) ) {
-      if (typeof prop == 'undefined') {
-        pkg[prop] = "";
-      }
-    } 
-  }
+  console.log(pkg);
+  
   var keywords = pkg.keywords;
   var keywordsMarkup = "";
-  keywords.forEach(function(element) {
-    keywordsMarkup += `<a class="ui teal tag label">${element}</a>`;
-  });
+  if (typeof keywords != 'undefined') {
+    keywords.forEach(function(element) {
+      keywordsMarkup += `<a class="ui teal tag label">${element}</a>`;
+    });
+  }
+  
   document.getElementById('pkg-name').innerHTML = pkg.name;
   document.getElementById('pkg-version').innerHTML = pkg.version;
   document.getElementById('pkg-desc').innerHTML = pkg.description;
@@ -42,4 +40,8 @@ function renderPkg(pkg) {
   if (typeof pkg.bugs.email != 'undefined') {
     document.getElementById('pkg-bugs-email').innerHTML = `Email: <a href="${pkg.bugs.email}">${pkg.bugs.email}</a>`;
   }
+  else {
+    document.getElementById('pkg-bugs-email').innerHTML = `Email: [unspecified]`;
+  }
+  document.getElementById('pkg-license').innerHTML = `<a href="https://spdx.org/licenses/${pkg.license}.html" target="_blank">${pkg.license}</a>`;
 }
