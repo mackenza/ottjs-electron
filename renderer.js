@@ -34,14 +34,16 @@ function renderPkg(pkg) {
   document.getElementById('pkg-desc').innerHTML = pkg.description;
   document.getElementById('pkg-keywords').innerHTML = keywordsMarkup;
   document.getElementById('pkg-homepage').innerHTML = `<a href="${pkg.homepage}">${pkg.homepage}</a>`;
-  if (typeof pkg.bugs.url != 'undefined') {
-    document.getElementById('pkg-bugs-url').innerHTML = `URL: <a href="${pkg.bugs.url}">${pkg.bugs.url}</a>`;
-  }
-  if (typeof pkg.bugs.email != 'undefined') {
-    document.getElementById('pkg-bugs-email').innerHTML = `Email: <a href="${pkg.bugs.email}">${pkg.bugs.email}</a>`;
-  }
-  else {
-    document.getElementById('pkg-bugs-email').innerHTML = `Email: [unspecified]`;
+  if (typeof pkg.bugs != 'undefined') {
+    if (typeof pkg.bugs.url != 'undefined') {
+      document.getElementById('pkg-bugs-url').innerHTML = `URL: <a href="${pkg.bugs.url}">${pkg.bugs.url}</a>`;
+    }
+    if (typeof pkg.bugs.email != 'undefined') {
+      document.getElementById('pkg-bugs-email').innerHTML = `Email: <a href="${pkg.bugs.email}">${pkg.bugs.email}</a>`;
+    }
+    else {
+      document.getElementById('pkg-bugs-email').innerHTML = `Email: [unspecified]`;
+    }
   }
   document.getElementById('pkg-license').innerHTML = `<a href="https://spdx.org/licenses/${pkg.license}.html" target="_blank">${pkg.license}</a>`;
 }
