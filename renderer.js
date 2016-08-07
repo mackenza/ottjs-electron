@@ -69,6 +69,17 @@ function renderPkg(pkg) {
       handleAnchor(licenseUrl);
     });
   }
+
+  if (typeof pkg.author != 'undefined') {
+    let authorMarkup = genPersonMarkup(pkg.author);
+    $('#pkg-author').html(authorMarkup);
+  }
+}
+
+function genPersonMarkup(person) {
+  if (typeof person.email != 'undefined') {
+    
+  }
 }
 
 function handleAnchor(href) {
