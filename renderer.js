@@ -77,9 +77,17 @@ function renderPkg(pkg) {
 }
 
 function genPersonMarkup(person) {
+  var markup = `<div class="item">`;
+  // name
+  markup += `<div class="header">${person.name}</div>`;
   if (typeof person.email != 'undefined') {
-    
+    markup += `<div class="description">${person.email}</div>`;
   }
+  if (typeof person.url != 'undefined') {
+    markup += `<div class="description">${person.url}</div>`;
+  }
+  markup += `</div>`;
+  return markup;
 }
 
 function handleAnchor(href) {
