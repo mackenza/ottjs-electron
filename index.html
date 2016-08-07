@@ -8,67 +8,88 @@
   </head>
   <body>
     <div class="ui container">
-      <h1 class="ui header">package.json explorer</h1>
-      <div class="ui big celled list">
+      <h1 class="ui center aligned header">package.json explorer</h1>
+      <div class="ui items">
         <div class="item">
-          <div class="content">
-            <div class="ui teal button" id="pkg-open">Open package.json</div>
-            <div class="header">Current Package: <span id="selected-file"></span></div>
+          <div class="ui tiny teal button" id="pkg-open">Open package.json</div>
+        </div>
+        <div class="ui horizontal divider">Current package.json</div>
+        <div class="item">
+          <div class="ui header" id="selected-file"></div>
+        </div>
+      </div>
+      <div class="ui grid">
+        <div class="four wide column">
+          <div class="ui vertical menu">
+            <a class="active item">Package Info</a>
+            <a class="item">Dependencies</a>
+            <a class="item">Dev Dependencies</a>
+            <a class="item">Scripts</a>
           </div>
         </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">Name: </div>
-            <span id="pkg-name"></span>
-          </div>
-        </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">Version: </div>
-            <span id="pkg-version"></span>
-          </div>
-        </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">Description: </div>
-            <p id="pkg-desc"></p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">Keywords: </div>
-            <span id="pkg-keywords"></span>
-          </div>
-        </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">Homepage: </div>
-            <span id="pkg-homepage"></span>
-          </div>
-        </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">Bugs: </div>
-            <div id="pkg-bugs-url"></div>
-            <div id="pkg-bugs-email"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">License: </div>
-            <span id="pkg-license"></span>
-          </div>
-        </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">Author(s): </div>
-            <span id="pkg-author"></span>
-          </div>
-        </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">Contributor(s): </div>
-            <span id="pkg-contributor"></span>
+        <div class="twelve wide column"> 
+          <div class="ui large celled list">
+            <div class="item">
+              <div class="content">
+                <div class="header">Name: </div>
+                <span id="pkg-name"></span>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <div class="header">Version: </div>
+                <span id="pkg-version"></span>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <div class="header">Description: </div>
+                <p id="pkg-desc"></p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <div class="header">Keywords: </div>
+                <span id="pkg-keywords"></span>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <div class="header">Homepage: </div>
+                <span id="pkg-homepage"></span>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <div class="header">Bugs: </div>
+                <div id="pkg-bugs-url"></div>
+                <div id="pkg-bugs-email"></div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <div class="header">License: </div>
+                <span id="pkg-license"></span>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <div class="header">Author(s): </div>
+                <span id="pkg-author"></span>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <div class="header">Contributor(s): </div>
+                <span id="pkg-contributor"></span>
+              </div>
+            </div>
+            <div class="item">
+              <div class="content">
+                <div class="header">Maintainer(s): </div>
+                <span id="pkg-maintainer"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -76,20 +97,7 @@
   </body>
   <script>window.$ = window.jQuery = require('jquery');</script>
   <script>
-    // You can also require other files to run in this process
     require('./renderer.js');
-
-    function makeEditable(p){
-    p.style.border = "1px solid #000";
-    p.style.padding = "10px";
-    p.contentEditable = true;
-    }
-
-    function makeReadOnly(p){
-        p.style.border = "none";
-        p.style.padding = "0px";
-        p.contentEditable = false;
-    }
   </script>
   <script src="semantic/dist/semantic.min.js"></script>
 
