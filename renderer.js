@@ -1,7 +1,6 @@
 const readPkg = require('read-pkg');
 const writePkg = require('write-pkg');
-const ipc = require('electron').ipcRenderer;
-const shell = require('electron').shell;
+const {ipcRenderer, shell} = require('electron');
 
 const selectPkgBtn = document.getElementById('pkg-open');
 var pkg;
@@ -11,10 +10,10 @@ readPkg(__dirname).then( (pkg) => {
 });
 
 selectPkgBtn.addEventListener('click', function (event) {
-  ipc.send('open-file-dialog')
+  ipcRenderer.send('open-file-dialog')
 });
 
-ipc.on('selected-directory', function (event, path) {
+ipcRenderer.on('selected-directory', function (event, path) {
   document.getElementById('selected-file').innerHTML = `${path}`;
   renderPkg(readPkg.sync(path[0]));
 });

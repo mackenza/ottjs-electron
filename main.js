@@ -1,17 +1,21 @@
-const electron = require('electron')
-// Module to control application life.
-const app = electron.app
-// Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
-
-const ipc = require('electron').ipcMain;
-const dialog = electron.dialog;
+// electron Modules
+const {app, BrowserWindow, ipcMain, dialog, Tray, Menu} = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow;
 
-ipc.on('open-file-dialog', (event) => {
+let tray = null;
+app.on('ready', () => {
+  tray = new Tray('./npm.png');
+  const contextMenu = Menu.buildFromTemplate([
+    {label: 'Like my tray?', type: 'checkbox'}
+  ]);
+  tray.setToolTip('This is my tray tooltip');
+  tray.setContextMenu(contextMenu);
+});
+
+ipcMain.on('open-file-dialog', (event) => {
   dialog.showOpenDialog({
     properties: ['openFile'],
     filters: [
