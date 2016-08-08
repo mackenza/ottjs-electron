@@ -14,8 +14,13 @@ selectPkgBtn.addEventListener('click', function (event) {
 });
 
 ipcRenderer.on('selected-directory', function (event, path) {
+  var pkg = readPkg.sync(path[0]);
   document.getElementById('selected-file').innerHTML = `${path}`;
-  renderPkg(readPkg.sync(path[0]));
+  renderPkg(pkg);
+  new Notification('Loaded new package.json', {
+    title: pkg.name,
+    body: path 
+  });
 });
 
 function renderPkg(pkg) {
