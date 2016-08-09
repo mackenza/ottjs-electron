@@ -5,6 +5,7 @@ const {app, BrowserWindow, ipcMain, dialog, Tray, Menu} = require('electron');
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
+// shows tray usage
 let tray = null;
 app.on('ready', () => {
   tray = new Tray('./npm.png');
@@ -15,6 +16,7 @@ app.on('ready', () => {
   tray.setContextMenu(contextMenu);
 });
 
+// shows ipc and dialog
 ipcMain.on('open-file-dialog', (event) => {
   dialog.showOpenDialog({
     properties: ['openFile'],

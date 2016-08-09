@@ -13,6 +13,7 @@ selectPkgBtn.addEventListener('click', function (event) {
   ipcRenderer.send('open-file-dialog')
 });
 
+// shows ipc triggering dialog and notification
 ipcRenderer.on('selected-directory', function (event, path) {
   var pkg = readPkg.sync(path[0]);
   document.getElementById('selected-file').innerHTML = `${path}`;
